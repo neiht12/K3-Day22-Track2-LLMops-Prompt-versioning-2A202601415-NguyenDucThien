@@ -226,7 +226,9 @@ Ví dụ cụ thể:
 
 ```bash
 python 02_prompt_hub_ab_routing.py | tee ../evidence/02_ab_routing_log.txt
-python 04_guardrails_validator.py  | tee ../evidence/04_pii_demo_log.txt
+# PowerShell 5 does not support UTF-8 output with Tee-Object.
+python 04_guardrails_validator.py --pii-only  | Out-File ../evidence/04_pii_demo_log.txt -Encoding utf8
+python 04_guardrails_validator.py --json-only | Out-File ../evidence/04_json_demo_log.txt -Encoding utf8
 ```
 
 ### 4. Push lên GitHub và nộp

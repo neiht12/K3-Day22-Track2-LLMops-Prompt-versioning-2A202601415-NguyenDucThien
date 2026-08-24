@@ -662,7 +662,9 @@ def demo_json_guard():
 **7. Chạy và lưu log**
 
 ```bash
-python 04_guardrails_validator.py | tee ../evidence/04_pii_demo_log.txt
+# PowerShell 5 does not support UTF-8 output with Tee-Object.
+python 04_guardrails_validator.py --pii-only  | Out-File ../evidence/04_pii_demo_log.txt -Encoding utf8
+python 04_guardrails_validator.py --json-only | Out-File ../evidence/04_json_demo_log.txt -Encoding utf8
 ```
 
 ---
